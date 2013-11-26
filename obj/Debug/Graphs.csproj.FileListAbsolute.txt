@@ -1,5 +1,0 @@
-C:\Users\Nikit\documents\visual studio 2010\Projects\Graphs\Graphs\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Nikit\documents\visual studio 2010\Projects\Graphs\Graphs\bin\Debug\Graphs.dll
-C:\Users\Nikit\documents\visual studio 2010\Projects\Graphs\Graphs\bin\Debug\Graphs.pdb
-C:\Users\Nikit\documents\visual studio 2010\Projects\Graphs\Graphs\obj\Debug\Graphs.dll
-C:\Users\Nikit\documents\visual studio 2010\Projects\Graphs\Graphs\obj\Debug\Graphs.pdb
