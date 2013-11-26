@@ -13,6 +13,12 @@ namespace Graphs {
             : base(t1, t2) {
             weight = t3;
         }
+
+        public override int GetHashCode() {
+            int hashCodeConstant = 17;
+            return hashCodeConstant + weight.GetHashCode() + base.GetHashCode();
+        }
+
         public override bool Equals(object obj) {
             if (obj == this) return true;
             return weight.Equals((obj as WeightedEdge<Node, T3>).Weight) && base.Equals(obj);
