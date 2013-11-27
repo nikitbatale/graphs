@@ -4,26 +4,32 @@ using System.Linq;
 using System.Text;
 
 namespace Graphs {
-    public class DirectedWeightedEdge<Node, T3> : WeightedEdge<Node, T3>, IDirectedEdge<Node> {
+    public class DirectedWeightedEdge<NodeType, T3> : WeightedEdge<NodeType, T3>, IDirectedEdge<NodeType> {
 
-        public DirectedWeightedEdge(Node fromNode, Node toNode, T3 weight)
+        public DirectedWeightedEdge(Node<NodeType> fromNode, Node<NodeType> toNode, T3 weight)
             : base(fromNode, toNode, weight) {
         }
 
-        public Node FromNode() {
+        public Node<NodeType> FromNode() {
             return endNodes.Item1;
         }
 
-        public Node ToNode() {
+        public Node<NodeType> ToNode() {
             return endNodes.Item2;
         }
 
+        public override int GetHashCode() {
+            return base.GetHashCode();
+        }
+
         public override bool Equals(object obj) {
-            return base.Equals(obj);
+            if (this.Equals(obj)) return true;
+            DirectedWeightedEdge<NodeType, T3> comparisionObject = obj as DirectedWeightedEdge<NodeType, T3>;
+            return (FromNode().Equals(comparisionObject.FromNode()) && ToNode().Equals(ToNode())) && this.Weight.Equals(comparisionObject.Weight);
         }
 
         public override string ToString() {
-            return endNodes.Item1 + "--" + Weight + "-->" + endNodes.Item2;
+            return FromNode() + "--" + Weight + "-->" + ToNode();
         }
     }
 }

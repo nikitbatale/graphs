@@ -25,6 +25,6 @@ namespace Graphs {
         public int Order() { return nodes.Count(); }
         public int Size() { return edges.Count(); }
 
-        public abstract bool AddEdge(NodeType node1, NodeType node2);
+        public abstract bool AddEdge(Node<NodeType> node1, Node<NodeType> node2);
     }
 }

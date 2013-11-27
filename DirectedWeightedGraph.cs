@@ -11,7 +11,17 @@ namespace Graphs {
             foreach (NodeType node in nodeData) Nodes.Add(new Node<NodeType>(node));
         }
 
-        public override bool AddEdge(NodeType node1, NodeType node2) {
+        public bool AddNode(Node<NodeType> node) {
+            return Nodes.Add(node);
+        }
+
+        public bool AddEdge(Node<NodeType> fromNode, Node<NodeType> toNode, T3 weight) {
+            if (!(Nodes.Contains(fromNode) && Nodes.Contains(toNode))) return false;
+            DirectedWeightedEdge<NodeType, T3> dwe = new DirectedWeightedEdge<NodeType, T3>(fromNode, toNode, weight);
+            return Edges.Add(dwe);
+        }
+
+        public override bool AddEdge(Node<NodeType> node1, Node<NodeType> node2) {
             throw new NotImplementedException();
         }
     }
