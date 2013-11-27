@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 
 namespace Graphs {
-    public abstract class Edge<Node> {
-        protected Tuple<Node, Node> endNodes;
+    public abstract class Edge<NodeType> {
+        protected Tuple<Node<NodeType>, Node<NodeType>> endNodes;
 
-        protected Tuple<Node, Node> EndNodes { get { return endNodes; } }
+        protected Tuple<Node<NodeType>, Node<NodeType>> EndNodes { get { return endNodes; } }
 
-        public Edge(Node t1, Node t2) {
-            endNodes = new Tuple<Node, Node>(t1, t2);
+        public Edge(Node<NodeType> t1, Node<NodeType> t2) {
+            endNodes = new Tuple<Node<NodeType>, Node<NodeType>>(t1, t2);
         }
 
         public override int GetHashCode() {
@@ -19,9 +19,9 @@ namespace Graphs {
         }
 
         public override bool Equals(object obj) {
-            Edge<Node> comparatorObject = (Edge<Node>)obj;
-            return (endNodes.Item1.Equals(comparatorObject.EndNodes.Item1) && endNodes.Item2.Equals(comparatorObject.EndNodes.Item2))
-                || (endNodes.Item1.Equals(comparatorObject.EndNodes.Item2) && endNodes.Item2.Equals(comparatorObject.EndNodes.Item1));
+            Edge<NodeType> comparisionObject = (Edge<NodeType>)obj;
+            return (endNodes.Item1.Equals(comparisionObject.EndNodes.Item1) && endNodes.Item2.Equals(comparisionObject.EndNodes.Item2))
+                || (endNodes.Item1.Equals(comparisionObject.EndNodes.Item2) && endNodes.Item2.Equals(comparisionObject.EndNodes.Item1));
         }
 
         public override string ToString() {
