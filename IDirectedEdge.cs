@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace Graphs {
-    public interface IDirectedEdge<Node> {
-        Node FromNode();
-        Node ToNode();
+    public interface IDirectedEdge<NodeType> {
+        Node<NodeType> FromNode();
+        Node<NodeType> ToNode();
     }
 }

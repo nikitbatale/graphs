@@ -11,11 +11,11 @@ namespace Graphs {
         }
 
         public Node<NodeType> FromNode() {
-            return endNodes.Item1;
+            return EndNodes.Item1;
         }
 
         public Node<NodeType> ToNode() {
-            return endNodes.Item2;
+            return EndNodes.Item2;
         }
 
         public override int GetHashCode() {
