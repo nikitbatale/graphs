@@ -22,8 +22,14 @@ namespace Graphs {
             return base.GetHashCode();
         }
 
+        /// <summary>
+        /// The commented loc where it the object is compared to itself is intentionally left commented as it is throwng a StackOverflow exception
+        /// for some unknown reason.
+        /// </summary>
+        /// <param name="obj">The object with which the current object is to be compared.</param>
+        /// <returns>Bool value depending upon the equality of the objects.</returns>
         public override bool Equals(object obj) {
-            if (this.Equals(obj)) return true;
+            //if (this.Equals(obj)) return true;
             DirectedWeightedEdge<NodeType, T3> comparisionObject = obj as DirectedWeightedEdge<NodeType, T3>;
             return (FromNode().Equals(comparisionObject.FromNode()) && ToNode().Equals(ToNode())) && this.Weight.Equals(comparisionObject.Weight);
         }
