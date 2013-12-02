@@ -7,7 +7,7 @@ namespace Graphs {
     public abstract class Edge<NodeType> {
         protected Tuple<Node<NodeType>, Node<NodeType>> endNodes;
 
-        protected Tuple<Node<NodeType>, Node<NodeType>> EndNodes { get { return endNodes; } }
+        public Tuple<Node<NodeType>, Node<NodeType>> EndNodes { get { return endNodes; } }
 
         public Edge(Node<NodeType> t1, Node<NodeType> t2) {
             endNodes = new Tuple<Node<NodeType>, Node<NodeType>>(t1, t2);
