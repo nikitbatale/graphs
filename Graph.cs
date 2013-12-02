@@ -27,6 +27,8 @@ namespace Graphs {
 
         public abstract bool AddEdge(Edge<NodeType> edge);
 
+        public abstract Graph<NodeType> SubGraph(params Edge<NodeType>[] edges);
+
         public override string ToString() {
             string ret = "";
             if (nodes.Count == 0) ret += "No nodes added\n";
