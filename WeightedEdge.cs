@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 
 namespace Graphs {
-    public class WeightedEdge<NodeType, T3> : Edge<NodeType>{
-        T3 weight;
+    public class WeightedEdge<NodeType, WeightType> : Edge<NodeType>{
+        WeightType weight;
 
-        public T3 Weight { get { return weight; } }
+        public WeightType Weight { get { return weight; } }
 
-        public WeightedEdge(Node<NodeType> t1, Node<NodeType> t2, T3 t3)
+        public WeightedEdge(Node<NodeType> t1, Node<NodeType> t2, WeightType t3)
             : base(t1, t2) {
             weight = t3;
         }
@@ -21,7 +21,7 @@ namespace Graphs {
 
         public override bool Equals(object obj) {
             if (obj == this) return true;
-            return weight.Equals((obj as WeightedEdge<NodeType, T3>).Weight) && base.Equals(obj);
+            return weight.Equals((obj as WeightedEdge<NodeType, WeightType>).Weight) && base.Equals(obj);
         }
 
         public override string ToString() {

@@ -13,7 +13,7 @@ namespace Graphs {
 
         public override bool AddEdge(Edge<NodeType> edge) {
             if (!(Nodes.Contains(edge.EndNodes.Item1) && Nodes.Contains(edge.EndNodes.Item2))) return false;
-            return base.Edges.Add(edge);
+            return base.Edges.Add(edge as WeightedEdge<NodeType, WeightType>);
         }
 
         public override Graph<NodeType> SubGraph(params Edge<NodeType>[] subgraphEdges) {

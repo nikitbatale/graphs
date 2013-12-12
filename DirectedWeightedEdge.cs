@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 
 namespace Graphs {
-    public class DirectedWeightedEdge<NodeType, T3> : WeightedEdge<NodeType, T3>, IDirectedEdge<NodeType> {
+    public class DirectedWeightedEdge<NodeType, WeightType> : WeightedEdge<NodeType, WeightType>, IDirectedEdge<NodeType> {
 
-        public DirectedWeightedEdge(Node<NodeType> fromNode, Node<NodeType> toNode, T3 weight)
+        public DirectedWeightedEdge(Node<NodeType> fromNode, Node<NodeType> toNode, WeightType weight)
             : base(fromNode, toNode, weight) {
         }
 
@@ -30,7 +30,7 @@ namespace Graphs {
         /// <returns>Bool value depending upon the equality of the objects.</returns>
         public override bool Equals(object obj) {
             //if (this.Equals(obj)) return true;
-            DirectedWeightedEdge<NodeType, T3> comparisionObject = obj as DirectedWeightedEdge<NodeType, T3>;
+            DirectedWeightedEdge<NodeType, WeightType> comparisionObject = obj as DirectedWeightedEdge<NodeType, WeightType>;
             return (FromNode().Equals(comparisionObject.FromNode()) && ToNode().Equals(ToNode())) && this.Weight.Equals(comparisionObject.Weight);
         }
 
