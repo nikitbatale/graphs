@@ -29,6 +29,17 @@ namespace Graphs {
 
         public abstract Graph<NodeType> SubGraph(params Edge<NodeType>[] edges);
 
+        public HashSet<Node<NodeType>> Neighbours(Node<NodeType> node){
+            List<Edge<NodeType>> listOfEdges = edges.ToList();
+            List<Edge<NodeType>> listOfContainingEdges = listOfEdges
+                .Where(edge => edge.EndNodes.Item1.Equals(node) || edge.EndNodes.Item2.Equals(node)).ToList();
+            List<Node<NodeType>> neignbouringNodes = listOfContainingEdges.Select(
+                edge => edge.EndNodes.Item1.Equals(node) ? edge.EndNodes.Item2 : edge.EndNodes.Item1).ToList();
+            return new HashSet<Node<NodeType>>(neignbouringNodes);
+        }
+
+        public abstract bool HasEdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode); 
+
         public override string ToString() {
             string ret = "";
             if (nodes.Count == 0) ret += "No nodes added\n";

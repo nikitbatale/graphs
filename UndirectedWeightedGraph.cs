@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace Graphs {
-    class UndirectedWeightedGraph<NodeType, WeightType> : Graph<NodeType> {
+    public class UndirectedWeightedGraph<NodeType, WeightType> : Graph<NodeType> {
 
         public UndirectedWeightedGraph(params NodeType[] nodeData)
             : base() {
@@ -29,6 +29,13 @@ namespace Graphs {
             return subGraph;
         }
 
+        public override bool HasEdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode) {
+            foreach (WeightedEdge<NodeType, WeightType> edge in Edges) {
+                if (edge.EndNodes.Item1.Equals(fromNode) && edge.EndNodes.Item2.Equals(toNode)) return true;
+                if (edge.EndNodes.Item2.Equals(fromNode) && edge.EndNodes.Item1.Equals(toNode)) return true;
+            }
+            return false;
+        }
         
         public override bool Equals(object obj) {
             return base.Equals(obj);

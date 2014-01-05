@@ -16,12 +16,6 @@ namespace Graphs {
             return Nodes.Add(node);
         }
 
-        //public bool AddEdge(Node<NodeType> fromNode, Node<NodeType> toNode, T3 weight) {
-        //    if (!(Nodes.Contains(fromNode) && Nodes.Contains(toNode))) return false;
-        //    DirectedWeightedEdge<NodeType, T3> dwe = new DirectedWeightedEdge<NodeType, T3>(fromNode, toNode, weight);
-        //    return AddEdge(dwe);
-        //}
-
         public override bool AddEdge(Edge<NodeType> edge) {
             if (!(Nodes.Contains(edge.EndNodes.Item1) && Nodes.Contains(edge.EndNodes.Item2))) return false;
             return Edges.Add(edge as DirectedWeightedEdge<NodeType, WeightType>);
@@ -38,6 +32,12 @@ namespace Graphs {
                 subGraph.AddEdge(edge);
             }
             return subGraph;
+        }
+
+        public override bool HasEdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode) {
+            foreach(DirectedWeightedEdge<NodeType, WeightType> edge in Edges)
+                if(edge.FromNode().Equals(fromNode) && edge.ToNode().Equals(toNode)) return true;
+            return false;
         }
 
         public override bool Equals(object obj) {
