@@ -38,7 +38,9 @@ namespace Graphs {
             return new HashSet<Node<NodeType>>(neignbouringNodes);
         }
 
-        public abstract bool HasEdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode); 
+        public abstract bool HasEdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode);
+
+        public abstract Edge<NodeType> EdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode);
 
         public override string ToString() {
             string ret = "";
