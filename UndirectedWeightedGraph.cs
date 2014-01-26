@@ -31,12 +31,20 @@ namespace Graphs {
 
         public override bool HasEdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode) {
             foreach (WeightedEdge<NodeType, WeightType> edge in Edges) {
-                if (edge.EndNodes.Item1.Equals(fromNode) && edge.EndNodes.Item2.Equals(toNode)) return true;
-                if (edge.EndNodes.Item2.Equals(fromNode) && edge.EndNodes.Item1.Equals(toNode)) return true;
+                if ((edge.EndNodes.Item1.Equals(fromNode) && edge.EndNodes.Item2.Equals(toNode)) ||
+                (edge.EndNodes.Item2.Equals(fromNode) && edge.EndNodes.Item1.Equals(toNode))) return true;
             }
             return false;
         }
-        
+
+        public override Edge<NodeType> EdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode) {
+            foreach (WeightedEdge<NodeType, WeightType> edge in Edges) {
+                if ((edge.EndNodes.Item1.Equals(fromNode) && edge.EndNodes.Item2.Equals(toNode)) ||
+                (edge.EndNodes.Item2.Equals(fromNode) && edge.EndNodes.Item1.Equals(toNode))) return edge;
+            }
+            return null;
+        }
+
         public override bool Equals(object obj) {
             return base.Equals(obj);
         }
