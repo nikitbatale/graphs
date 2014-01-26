@@ -13,6 +13,16 @@ namespace Graphs {
             endNodes = new Tuple<Node<NodeType>, Node<NodeType>>(t1, t2);
         }
 
+        public bool HasNode(Node<NodeType> node) {
+            return endNodes.Item1.Equals(node) || endNodes.Item2.Equals(node);
+        }
+
+        public Node<NodeType> OtherNode(Node<NodeType> node) {
+            if (EndNodes.Item1.Equals(node)) return EndNodes.Item2;
+            else if (EndNodes.Item2.Equals(node)) return EndNodes.Item1;
+            return null;
+        }
+
         public override int GetHashCode() {
             int hashCodeConstant = 17;
             return hashCodeConstant + endNodes.Item1.GetHashCode() + endNodes.Item2.GetHashCode();
