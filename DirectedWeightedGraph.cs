@@ -40,6 +40,12 @@ namespace Graphs {
             return false;
         }
 
+        public override Edge<NodeType> EdgeBetween(Node<NodeType> fromNode, Node<NodeType> toNode) {
+            foreach (DirectedWeightedEdge<NodeType, WeightType> edge in Edges)
+                if (edge.FromNode().Equals(fromNode) && edge.ToNode().Equals(toNode)) return edge;
+            return null;
+        }
+
         public override bool Equals(object obj) {
             return base.Equals(obj);
         }
